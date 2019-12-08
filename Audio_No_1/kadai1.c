@@ -1,20 +1,20 @@
 /***************************************************************************
-› ƒtƒ@ƒCƒ‹–¼Fkadai1.c
-› ƒvƒƒOƒ‰ƒ€“à—eF“Ç‚Ýž‚ñ‚¾RAWƒtƒ@ƒCƒ‹‚ðŽžŠÔ”½“]‚µ‚Äo—Í‚·‚éƒvƒƒOƒ‰ƒ€
+â—‹ ãƒ•ã‚¡ã‚¤ãƒ«åï¼škadai1.c
+â—‹ ãƒ—ãƒ­ã‚°ãƒ©ãƒ å†…å®¹ï¼šèª­ã¿è¾¼ã‚“ã RAWãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ™‚é–“åè»¢ã—ã¦å‡ºåŠ›ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 
-y’ˆÓz
-	‚±‚ÌƒvƒƒOƒ‰ƒ€‚Í–¢Š®¬‚Å‚ ‚éB
-	ŠeŽ©‚Å•K—v‚È•”•ª‚ð’Ç‹L‚µ–{ƒvƒƒOƒ‰ƒ€‚ðŠ®¬‚³‚¹‚é‚±‚Æ
+ã€æ³¨æ„ã€‘
+	ã“ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã¯æœªå®Œæˆã§ã‚ã‚‹ã€‚
+	å„è‡ªã§å¿…è¦ãªéƒ¨åˆ†ã‚’è¿½è¨˜ã—æœ¬ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å®Œæˆã•ã›ã‚‹ã“ã¨
 
-yƒqƒ“ƒgz
-	¦ ’Ç‹L‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢‰ÓŠ
-	i‚Pj“ü—ÍM†‚ÌŽžŠÔ”½“]
-	i‚Qjgnuplot‚ð—p‚¢‚ÄŽžŠÔ”gŒ`‚ðƒOƒ‰ƒt•\Ž¦‚·‚é‚½‚ß‚ÌƒeƒLƒXƒgƒtƒ@ƒCƒ‹o—Í
+ã€ãƒ’ãƒ³ãƒˆã€‘
+	â€» è¿½è¨˜ã—ãªã‘ã‚Œã°ã„ã‘ãªã„ç®‡æ‰€
+	ï¼ˆï¼‘ï¼‰å…¥åŠ›ä¿¡å·ã®æ™‚é–“åè»¢
+	ï¼ˆï¼’ï¼‰gnuplotã‚’ç”¨ã„ã¦æ™‚é–“æ³¢å½¢ã‚’ã‚°ãƒ©ãƒ•è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ãƒ†ã‚­ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›
 
-› ƒRƒ“ƒpƒCƒ‹•û–@Fƒ^[ƒ~ƒiƒ‹ã‚Å‰E‚ÌƒRƒ}ƒ“ƒh‚ð“ü—Íugcc -o kadai1 kadai1.c -lmv
-› ŽÀs•û–@Fu./kadai1 “ü—Íƒtƒ@ƒCƒ‹–¼ o—Íƒtƒ@ƒCƒ‹–¼v
-› ŽÀs—áFu./kadai1 music.vc music.invv
-	i ¦ music.vc‚ÌŽžŠÔ”½“]‚µ‚½Œ‹‰Ê‚ðmusic.inv‚ÉŠi”[ j
+â—‹ ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ–¹æ³•ï¼šã‚¿ãƒ¼ãƒŸãƒŠãƒ«ä¸Šã§å³ã®ã‚³ãƒžãƒ³ãƒ‰ã‚’å…¥åŠ›ã€Œgcc -o kadai1 kadai1.c -lmã€
+â—‹ å®Ÿè¡Œæ–¹æ³•ï¼šã€Œ./kadai1 å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«å å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«åã€
+â—‹ å®Ÿè¡Œä¾‹ï¼šã€Œ./kadai1 music.vc music.invã€
+	ï¼ˆ â€» music.vcã®æ™‚é–“åè»¢ã—ãŸçµæžœã‚’music.invã«æ ¼ç´ ï¼‰
 
 Copyright @ ASPL all rights reserved.
 ***************************************************************************/
@@ -24,53 +24,65 @@ Copyright @ ASPL all rights reserved.
 
 int main( int argc, char **argv ){
 
-	int i;         // ƒ‹[ƒvƒJƒEƒ“ƒ^
-	int dtSize;    // “ü—Í‰¹Œ¹‚ÌƒTƒ“ƒvƒ‹”
+	int i;         // ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿
+	int dtSize;    // å…¥åŠ›éŸ³æºã®ã‚µãƒ³ãƒ—ãƒ«æ•°
 
-	short *dt_in;  // “ü—Í‰¹Œ¹Ši”[—pƒ|ƒCƒ“ƒ^
-	short *dt_out; // o—Í‰¹Œ¹Ši”[—pƒ|ƒCƒ“ƒ^
+	short *dt_in;  // å…¥åŠ›éŸ³æºæ ¼ç´ç”¨ãƒã‚¤ãƒ³ã‚¿
+	short *dt_out; // å‡ºåŠ›éŸ³æºæ ¼ç´ç”¨ãƒã‚¤ãƒ³ã‚¿
 
-	double *time;  // ŽžŠÔî•ñŠi”[—pƒ|ƒCƒ“ƒ^
+	double *time;  // æ™‚é–“æƒ…å ±æ ¼ç´ç”¨ãƒã‚¤ãƒ³ã‚¿
 
 
-	/***************************“ü—Íƒf[ƒ^‚Ì“Ç‚Ýž‚Ý***************************/
+	/***************************å…¥åŠ›ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿***************************/
 	//                                                                        //
-	//  u“ü—Í‰¹Œ¹Fargv[ 1 ]v‚Ì’†g‚ªudt_inv‚ÉŠi”[‚³‚ê‚é                  //
-	//   “ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”‚ªudtSizev‚ÉŠi”[‚³‚ê‚é                     //
+	//  ã€Œå…¥åŠ›éŸ³æºï¼šargv[ 1 ]ã€ã®ä¸­èº«ãŒã€Œdt_inã€ã«æ ¼ç´ã•ã‚Œã‚‹                  //
+	//   å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°ãŒã€ŒdtSizeã€ã«æ ¼ç´ã•ã‚Œã‚‹                     //
 	//                                                                        //
 	/**************************************************************************/
 	dt_in = Read_Raw_File_Short( argv[ 1 ], &dtSize );
 
-	// o—Í‰¹Œ¹‚Ì’†g‚ðŠi”[‚·‚éshortŒ^”z—ñ‚Ìƒƒ‚ƒŠ‚ðŠm•Û
-	//( 2byte( shortŒ^ ) * “ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”( dtSize ) )
+	// å‡ºåŠ›éŸ³æºã®ä¸­èº«ã‚’æ ¼ç´ã™ã‚‹shortåž‹é…åˆ—ã®ãƒ¡ãƒ¢ãƒªã‚’ç¢ºä¿
+	//( 2byte( shortåž‹ ) * å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°( dtSize ) )
 	dt_out = Memory_Short( dtSize );
 
-	/************* (‰Û‘è) “ü—ÍM†‚ÌŽžŠÔ”½“] **************/
+	/************* (èª²é¡Œ) å…¥åŠ›ä¿¡å·ã®æ™‚é–“åè»¢ **************/
 	//                                                    //
-	//         ‚±‚Ì•”•ª‚ÌƒvƒƒOƒ‰ƒ€‚ðŠeŽ©‚Åì¬           //
+	//         ã“ã®éƒ¨åˆ†ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å„è‡ªã§ä½œæˆ           //
 	//                                                    //
 	/******************************************************/
+	for(i = 0; i < dtSize; i++)
+		dt_out[i] = dt_in[dtSize - 1 - i];
 
-
-	/***************************o—ÍÄ¶ƒf[ƒ^‚Ìì¬***************************/
+	/***************************å‡ºåŠ›å†ç”Ÿãƒ‡ãƒ¼ã‚¿ã®ä½œæˆ***************************/
 	//                                                                        //
-	//        uo—Íƒtƒ@ƒCƒ‹Fargv[ 2 ]v‚Éudt_outv‚Ì’†g‚ªŠi”[             //
+	//        ã€Œå‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ï¼šargv[ 2 ]ã€ã«ã€Œdt_outã€ã®ä¸­èº«ãŒæ ¼ç´             //
 	//                                                                        //
 	/**************************************************************************/
 	Write_Raw_File_Short( dt_out, argv[ 2 ], dtSize );
 
-	// ƒOƒ‰ƒt•\Ž¦‚Ì‚½‚ß‚ÌŽžŠÔî•ñ‚ðŠi”[‚·‚édoubleŒ^”z—ñ‚Ìƒƒ‚ƒŠŠm•Û
+	// ã‚°ãƒ©ãƒ•è¡¨ç¤ºã®ãŸã‚ã®æ™‚é–“æƒ…å ±ã‚’æ ¼ç´ã™ã‚‹doubleåž‹é…åˆ—ã®ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	time = Memory_Double( dtSize );
+	for(int i = 0; i < dtSize; i++)
+		time[i] = (double)i*(1.0 / 16000);
 
-	/* (‰Û‘è) gnuplot‚ð—p‚¢‚½ŽžŠÔ”gŒ`•\Ž¦ƒvƒƒOƒ‰ƒ€‚Ìì¬ */
+	/* (èª²é¡Œ) gnuplotã‚’ç”¨ã„ãŸæ™‚é–“æ³¢å½¢è¡¨ç¤ºãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®ä½œæˆ */
 	//                                                    //
-	//          ‚±‚Ì•”•ª‚ÌƒvƒƒOƒ‰ƒ€‚ðŠeŽ©‚Åì¬          //
-	//        ¦ ‰¡Ž²FŽžŠÔ(time), cŽ²FU•(dt_out)     //
+	//          ã“ã®éƒ¨åˆ†ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’å„è‡ªã§ä½œæˆ          //
+	//        â€» æ¨ªè»¸ï¼šæ™‚é–“(time), ç¸¦è»¸ï¼šæŒ¯å¹…(dt_out)     //
 	//                                                    //
 	/******************************************************/
+	FILE *fpout;
+	fpout = fopen("kadai1.dat", "w");
+	if(fpout == NULL){
+		fprintf(stderr, "FILE Open ERROR\n");
+		exit(-1);
+	}
 
+	for(i = 0; i < dtSize; i++)
+		fprintf(fpout, "%lf %d \n", time[i], dt_out[i]);
+	fclose(fpout);
 
-	// ƒƒ‚ƒŠŠJ•ú
+	// ãƒ¡ãƒ¢ãƒªé–‹æ”¾
 	free( dt_in );
 	free( dt_out );
 	free( time );

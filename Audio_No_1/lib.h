@@ -1,6 +1,6 @@
 /***************************************************************************
-› ƒtƒ@ƒCƒ‹–¼Fread_write.c
-› “à—eF“Ç‚İ‚İC‘‚«‚İ, ƒƒ‚ƒŠŠm•Û“™‚ÌŠÖ”ŒQ
+â—‹ ãƒ•ã‚¡ã‚¤ãƒ«åï¼šread_write.c
+â—‹ å†…å®¹ï¼šèª­ã¿è¾¼ã¿ï¼Œæ›¸ãè¾¼ã¿, ãƒ¡ãƒ¢ãƒªç¢ºä¿ç­‰ã®é–¢æ•°ç¾¤
 
 Copyright @ ASPL all rights reserved.
 ***************************************************************************/
@@ -9,12 +9,12 @@ Copyright @ ASPL all rights reserved.
 #include <math.h>
 
 /***************************************************************************
-› ŠÖ”–¼Fshort* Read_Raw_File_Short( char *fname, int *dtSize )
-› “à—eFRAWŒ`®‚Ì‰¹Œ¹(fname)‚©‚ç—Êq‰»ƒrƒbƒg16bit‚Å’Šo
-         ƒTƒ“ƒvƒ‹”‚Í*dtSize‚ÉŠi”[
-› ˆø”Fchar *fnameF“ü—Íƒtƒ@ƒCƒ‹–¼
-       Fint *dtSizeF“ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”‚ğŠi”[‚·‚é•Ï”‚ÌƒAƒhƒŒƒX
-› –ß‚è’lF“ü—Íƒtƒ@ƒCƒ‹‚Ì•W–{ƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+â—‹ é–¢æ•°åï¼šshort* Read_Raw_File_Short( char *fname, int *dtSize )
+â—‹ å†…å®¹ï¼šRAWå½¢å¼ã®éŸ³æº(fname)ã‹ã‚‰é‡å­åŒ–ãƒ“ãƒƒãƒˆ16bitã§æŠ½å‡º
+         ã‚µãƒ³ãƒ—ãƒ«æ•°ã¯*dtSizeã«æ ¼ç´
+â—‹ å¼•æ•°ï¼šchar *fnameï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+       ï¼šint *dtSizeï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+â—‹ æˆ»ã‚Šå€¤ï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 ***************************************************************************/
 short* Read_Raw_File_Short( char *fname, int *dtSize ){
 
@@ -22,71 +22,71 @@ short* Read_Raw_File_Short( char *fname, int *dtSize ){
 
 	FILE *fp;
 
-	// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 	if( ( fp = fopen( fname, "rb" ) ) == NULL ){
 		printf("Read_Raw_File_Short() : FILE [%s] ERROR\n", fname);
 		exit( -1 );
 	}
 
-	// •W–{”‚Ìæ“¾
+	// æ¨™æœ¬æ•°ã®å–å¾—
 	fseek( fp, 0, SEEK_END );
 	*dtSize = ftell( fp ) / sizeof( short );
 	fseek( fp, 0, SEEK_SET );
 
-	// •W–{”•ª‚Ìƒƒ‚ƒŠŠm•Û
+	// æ¨™æœ¬æ•°åˆ†ã®ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if( ( data = ( short* )malloc( sizeof( short ) * ( *dtSize ) ) ) == NULL ){
 		printf("Read_Raw_File_Short() : MALLOC ERROR\n");
 		exit( -1 );
 	}
 
-	// •W–{ƒf[ƒ^‚ÌŠi”[
+	// æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿ã®æ ¼ç´
 	if( fread( data, sizeof( short ), *dtSize, fp ) < *dtSize ){
 		printf("Read_Raw_File_Short() : DATA READ ERROR\n");
 		exit( -1 );
 	}
 
-	// ƒtƒ@ƒCƒ‹ƒNƒ[ƒY
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
 	fclose( fp );
 
 	return( data );
 }
 
 /***************************************************************************
-› ŠÖ”–¼Fvoid Write_Raw_File_Short( short *data, char *fname, int dtSize )
-› “à—eF*data‚©‚ç—Êq‰»ƒrƒbƒg16bit‚Ì•W–{’l‚ğdtSizeŒÂ•ª
-         RAWŒ`®‚Ì‰¹Œ¹(fname)‚ÉŠi”[
-› ˆø”Fshort *dataFo—Í‚·‚é•W–{ƒf[ƒ^
-       Fchar *fnameFo—Íƒtƒ@ƒCƒ‹–¼
-       Fint dtSizeFo—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”
-› –ß‚è’lF‚È‚µ
+â—‹ é–¢æ•°åï¼švoid Write_Raw_File_Short( short *data, char *fname, int dtSize )
+â—‹ å†…å®¹ï¼š*dataã‹ã‚‰é‡å­åŒ–ãƒ“ãƒƒãƒˆ16bitã®æ¨™æœ¬å€¤ã‚’dtSizeå€‹åˆ†
+         RAWå½¢å¼ã®éŸ³æº(fname)ã«æ ¼ç´
+â—‹ å¼•æ•°ï¼šshort *dataï¼šå‡ºåŠ›ã™ã‚‹æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿
+       ï¼šchar *fnameï¼šå‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+       ï¼šint dtSizeï¼šå‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
+â—‹ æˆ»ã‚Šå€¤ï¼šãªã—
 ***************************************************************************/
 void Write_Raw_File_Short( short *data, char *fname, int dtSize ){
 
 	FILE *fp;
 
-	// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 	if( ( fp = fopen( fname, "wb" ) ) == NULL ){
 		printf("Write_Raw_File_Short() : FILE [%s] ERROR\n", fname);
 		exit( -1 );
 	}
 
-	// ƒf[ƒ^‘‚«‚İ
+	// ãƒ‡ãƒ¼ã‚¿æ›¸ãè¾¼ã¿
 	if( fwrite( data, sizeof( short ), dtSize, fp ) < dtSize ){
 		printf("Write_Raw_File_Short() : DATA WRITE ERROR\n");
 		exit( -1 );
 	}
 
-	// ƒtƒ@ƒCƒ‹ƒNƒ[ƒY
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
 	fclose( fp );
 }
 
 /***************************************************************************
-› ŠÖ”–¼Fdouble* Read_Raw_File_Double( char *fname, int *dtSize )
-› “à—eFRAWŒ`®‚Ì‰¹Œ¹(fname)‚©‚ç—Êq‰»ƒrƒbƒg64bit‚Å’Šo
-         ƒTƒ“ƒvƒ‹”‚Í*dtSize‚ÉŠi”[
-› ˆø”Fchar *fnameF“ü—Íƒtƒ@ƒCƒ‹–¼
-       Fint *dtSizeF“ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”‚ğŠi”[‚·‚é•Ï”‚ÌƒAƒhƒŒƒX
-› –ß‚è’lF“ü—Íƒtƒ@ƒCƒ‹‚Ì•W–{ƒf[ƒ^‚Ìæ“ªƒAƒhƒŒƒX
+â—‹ é–¢æ•°åï¼šdouble* Read_Raw_File_Double( char *fname, int *dtSize )
+â—‹ å†…å®¹ï¼šRAWå½¢å¼ã®éŸ³æº(fname)ã‹ã‚‰é‡å­åŒ–ãƒ“ãƒƒãƒˆ64bitã§æŠ½å‡º
+         ã‚µãƒ³ãƒ—ãƒ«æ•°ã¯*dtSizeã«æ ¼ç´
+â—‹ å¼•æ•°ï¼šchar *fnameï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+       ï¼šint *dtSizeï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°ã‚’æ ¼ç´ã™ã‚‹å¤‰æ•°ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+â—‹ æˆ»ã‚Šå€¤ï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿ã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 ***************************************************************************/
 double* Read_Raw_File_Double( char *fname, int *dtSize ){
 
@@ -94,75 +94,75 @@ double* Read_Raw_File_Double( char *fname, int *dtSize ){
 
 	FILE *fp;
 
-	// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 	if( ( fp = fopen( fname, "rb" ) ) == NULL ){
 		printf("Read_Raw_File_Short() : FILE [%s] ERROR\n", fname);
 		exit( -1 );
 	}
 
-	// •W–{”‚Ìæ“¾
+	// æ¨™æœ¬æ•°ã®å–å¾—
 	fseek( fp, 0, SEEK_END );
 	*dtSize = ftell( fp ) / sizeof( double );
 	fseek( fp, 0, SEEK_SET );
 
-	// •W–{”•ª‚Ìƒƒ‚ƒŠŠm•Û
+	// æ¨™æœ¬æ•°åˆ†ã®ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if( ( data = ( double* )malloc( sizeof( double ) * ( *dtSize ) ) ) == NULL ){
 		printf("Read_Raw_File_Short() : MALLOC ERROR\n");
 		exit( -1 );
 	}
 
-	// •W–{ƒf[ƒ^‚ÌŠi”[
+	// æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿ã®æ ¼ç´
 	if( fread( data, sizeof( double ), *dtSize, fp ) < *dtSize ){
 		printf("Read_Raw_File_Short() : DATA READ ERROR\n");
 		exit( -1 );
 	}
 
-	// ƒtƒ@ƒCƒ‹ƒNƒ[ƒY
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
 	fclose( fp );
 
 	return( data );
 }
 
 /***************************************************************************
-› ŠÖ”–¼Fvoid Write_Raw_File_Double( double *data, char *fname, int dtSize )
-› “à—eF*data‚©‚ç—Êq‰»ƒrƒbƒg64bit‚Ì•W–{’l‚ğdtSizeŒÂ•ª
-         RAWŒ`®‚Ì‰¹Œ¹(fname)‚ÉŠi”[
-› ˆø”Fdouble *dataFo—Í‚·‚é•W–{ƒf[ƒ^
-       Fchar *fnameFo—Íƒtƒ@ƒCƒ‹–¼
-       Fint dtSizeFo—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”
-› –ß‚è’lF‚È‚µ
+â—‹ é–¢æ•°åï¼švoid Write_Raw_File_Double( double *data, char *fname, int dtSize )
+â—‹ å†…å®¹ï¼š*dataã‹ã‚‰é‡å­åŒ–ãƒ“ãƒƒãƒˆ64bitã®æ¨™æœ¬å€¤ã‚’dtSizeå€‹åˆ†
+         RAWå½¢å¼ã®éŸ³æº(fname)ã«æ ¼ç´
+â—‹ å¼•æ•°ï¼šdouble *dataï¼šå‡ºåŠ›ã™ã‚‹æ¨™æœ¬ãƒ‡ãƒ¼ã‚¿
+       ï¼šchar *fnameï¼šå‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+       ï¼šint dtSizeï¼šå‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
+â—‹ æˆ»ã‚Šå€¤ï¼šãªã—
 ***************************************************************************/
 void Write_Raw_File_Double( double *data, char *fname, int dtSize ){
 
 	FILE *fp;
 
-	// ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³
 	if( ( fp = fopen( fname, "wb" ) ) == NULL ){
 		printf("Write_Raw_File_Short() : FILE [%s] ERROR\n", fname);
 		exit( -1 );
 	}
 
-	// ƒf[ƒ^‘‚«‚İ
+	// ãƒ‡ãƒ¼ã‚¿æ›¸ãè¾¼ã¿
 	if( fwrite( data, sizeof( double ), dtSize, fp ) < dtSize ){
 		printf("Write_Raw_File_Short() : DATA WRITE ERROR\n");
 		exit( -1 );
 	}
 
-	// ƒtƒ@ƒCƒ‹ƒNƒ[ƒY
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚¯ãƒ­ãƒ¼ã‚º
 	fclose( fp );
 }
 
 /***************************************************************************
-› ŠÖ”–¼Fdouble* Memory_Double( int dtSize )
-› “à—eFdoubleŒ^‚Ìƒƒ‚ƒŠ‚ğdtSizeŒÂŠm•Û‚·‚é
-› ˆø”Fint dtSizeF“ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”
-› –ß‚è’lFŠm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìæ“ªƒAƒhƒŒƒX
+â—‹ é–¢æ•°åï¼šdouble* Memory_Double( int dtSize )
+â—‹ å†…å®¹ï¼šdoubleå‹ã®ãƒ¡ãƒ¢ãƒªã‚’dtSizeå€‹ç¢ºä¿ã™ã‚‹
+â—‹ å¼•æ•°ï¼šint dtSizeï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
+â—‹ æˆ»ã‚Šå€¤ï¼šç¢ºä¿ã—ãŸãƒ¡ãƒ¢ãƒªã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 ***************************************************************************/
 double* Memory_Double( int dtSize ){
 
 	double *data;
 
-	// ƒƒ‚ƒŠŠm•Û
+	// ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if( ( data = ( double * )malloc( sizeof( double ) * dtSize ) ) == NULL ){
 		fprintf( stderr, "Memory_Double() : MALLOC ERROR\n");
 		exit( -1 );
@@ -172,16 +172,16 @@ double* Memory_Double( int dtSize ){
 }
 
 /***************************************************************************
-› ŠÖ”–¼Fshort* Memory_Short( int dtSize )
-› “à—eFshortŒ^‚Ìƒƒ‚ƒŠ‚ğdtSizeŒÂŠm•Û‚·‚é
-› ˆø”Fint dtSizeF“ü—Íƒtƒ@ƒCƒ‹‚ÌƒTƒ“ƒvƒ‹”
-› –ß‚è’lFŠm•Û‚µ‚½ƒƒ‚ƒŠ‚Ìæ“ªƒAƒhƒŒƒX
+â—‹ é–¢æ•°åï¼šshort* Memory_Short( int dtSize )
+â—‹ å†…å®¹ï¼šshortå‹ã®ãƒ¡ãƒ¢ãƒªã‚’dtSizeå€‹ç¢ºä¿ã™ã‚‹
+â—‹ å¼•æ•°ï¼šint dtSizeï¼šå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚µãƒ³ãƒ—ãƒ«æ•°
+â—‹ æˆ»ã‚Šå€¤ï¼šç¢ºä¿ã—ãŸãƒ¡ãƒ¢ãƒªã®å…ˆé ­ã‚¢ãƒ‰ãƒ¬ã‚¹
 ***************************************************************************/
 short* Memory_Short( int dtSize ){
 
 	short *data;
 
-	// ƒƒ‚ƒŠŠm•Û
+	// ãƒ¡ãƒ¢ãƒªç¢ºä¿
 	if( ( data = ( short * )malloc( sizeof( short ) * dtSize ) ) == NULL ){
 		fprintf( stderr, "Memory_Short() : MALLOC ERROR\n");
 		exit( -1 );
@@ -192,24 +192,24 @@ short* Memory_Short( int dtSize ){
 
 
 /***************************************************************************
-› ŠÖ”–¼Fvoid DFT(int N, double D[], double Xr[], double Xi[])
-› “à—eF“ü—ÍM†D[]‚ğƒt[ƒŠƒG“_”N‚Åƒt[ƒŠƒG•ÏŠ·‚µ‚½Œ‹‰Ê‚ğ
-         À•”Xr[], ‹••”Xi[]‚ÉŠi”[‚·‚é
-› ˆø”Fint NFƒt[ƒŠƒG“_”
-         double D[]F“ü—ÍM†
-         double Xr[]Fƒt[ƒŠƒG•ÏŠ·Œ‹‰ÊiÀ•”j
-         double Xi[]Fƒt[ƒŠƒG•ÏŠ·Œ‹‰Êi‹••”j
-› –ß‚è’lF‚È‚µ
+â—‹ é–¢æ•°åï¼švoid DFT(int N, double D[], double Xr[], double Xi[])
+â—‹ å†…å®¹ï¼šå…¥åŠ›ä¿¡å·D[]ã‚’ãƒ•ãƒ¼ãƒªã‚¨ç‚¹æ•°Nã§ãƒ•ãƒ¼ãƒªã‚¨å¤‰æ›ã—ãŸçµæœã‚’
+         å®Ÿéƒ¨Xr[], è™šéƒ¨Xi[]ã«æ ¼ç´ã™ã‚‹
+â—‹ å¼•æ•°ï¼šint Nï¼šãƒ•ãƒ¼ãƒªã‚¨ç‚¹æ•°
+         double D[]ï¼šå…¥åŠ›ä¿¡å·
+         double Xr[]ï¼šãƒ•ãƒ¼ãƒªã‚¨å¤‰æ›çµæœï¼ˆå®Ÿéƒ¨ï¼‰
+         double Xi[]ï¼šãƒ•ãƒ¼ãƒªã‚¨å¤‰æ›çµæœï¼ˆè™šéƒ¨ï¼‰
+â—‹ æˆ»ã‚Šå€¤ï¼šãªã—
 ***************************************************************************/
 void DFT(int N, double D[], double Xr[], double Xi[]){
 
-  int k, n;              // ƒ‹[ƒvƒJƒEƒ“ƒ^
-  double er, ei;         // À•”E‹••”
+  int k, n;              // ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿
+  double er, ei;         // å®Ÿéƒ¨ãƒ»è™šéƒ¨
 
-  double w;              // Šeü”g”
-	double pai=3.1415926;  // ‰~ü—¦
+  double w;              // å„å‘¨æ³¢æ•°
+	double pai=3.1415926;  // å††å‘¨ç‡
 
-	// ƒt[ƒŠƒG•ÏŠ·
+	// ãƒ•ãƒ¼ãƒªã‚¨å¤‰æ›
   for( k = 0; k < N; k++ ){
 
     Xr[ k ] = Xi[ k ] = 0.0;

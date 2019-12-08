@@ -5,7 +5,7 @@
         "includePath": ["${workspaceFolder}/**", "${vcpkgRoot}/x86-windows/include"],
         "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
         "windowsSdkVersion": "10.0.17763.0",
-        "compilerPath": "F:\\Application\\mingw64\\bin\\g++.exe",
+        "compilerPath": "D:\\Application\\mingw64\\bin\\g++.exe",
         "cStandard": "c11",
         "cppStandard": "c++17",
         "intelliSenseMode": "${default}"

@@ -10,12 +10,12 @@
         "request": "launch",
         "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
         "args": [],
-        "stopAtEntry": true,
+        "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],
         "externalConsole": true,
         "MIMode": "gdb",
-        "miDebuggerPath": "F:\\Application\\mingw64\\bin\\g++.exe",
+        "miDebuggerPath": "D:\\Application\\mingw64\\bin\\gdb.exe",
         "setupCommands": [
           {
             "description": "Enable pretty-printing for gdb",
