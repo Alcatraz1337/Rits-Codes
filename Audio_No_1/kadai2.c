@@ -117,7 +117,6 @@ int main( int argc, char **argv )
     Xi = Memory_Double(DFT_P);
     DFT(N,D,Xr,Xi);  
 
-    //パワースペクトルの計算
 	double *power;
 	power = Memory_Double(DFT_P);
     for(i = 0 ; i < DFT_P ; i++)
@@ -125,23 +124,19 @@ int main( int argc, char **argv )
         power[i] = Xr[i] * Xr[i] + Xi[i] * Xi[i];
     }
 
-    //テキストファイルへ出力
 	double *horizon;
 	double *dB;
 	horizon = Memory_Double(DFT_P/2); //sample / 2
     dB = Memory_Double(DFT_P/2);
-    for(i = 0 ; i < DFT_P / 2 ; i++)
-    {
-        horizon[i] = 16000.0*((double)i/DFT_P);
-        dB[i] = 10*log10(power[i]);
+    for(i = 0; i < DFT_P / 2; i++){
+        horizon[i] = 16000.0*((double)i / DFT_P);
+        dB[i] = 10 * log10(power[i]);
     }
-	if((fpout = fopen("kadai2.dat","w")) == NULL)
-	{
+	if((fpout = fopen("kadai2.dat","w")) == NULL){
 		fprintf(stderr, "FILE open ERROR\n" );
 		exit(-1);
 	}
-     for(i = 0 ; i < DFT_P / 2 ; i++)
-    {
+     for(i = 0 ; i < DFT_P / 2 ; i++){
         fprintf(fpout , "%f\t%f\n" , horizon[i] , dB[i]);
     }  
 	//---------------------------------------------------------------------//
